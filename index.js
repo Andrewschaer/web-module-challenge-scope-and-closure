@@ -28,11 +28,19 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    
+  #The variable count is declared inside of a function in counter1, and outside of a function in counter2.
   
   2. Which of the two uses a closure? How can you tell?
+    
+  #Both use a closure.  In counter1, within the function "counter", in order to add to the variable "count", the function needs to reach outside of its own scope to find the value of the variable "count".  In counter 2, within the function of counter2, the function also needs to reach outside of its own scope to find the value of the variable "count".
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     
+  #Counter1's code would be preferable when you want to contain the variable of count to within the counterMaker functions scope and not at the global level.  This is generally preferred because global level variables can cause errors when working collaboratively with others as there is a chance others may try to declare the same variable at another point in the code.  
+
+  Counter2's code may be preferable only when there may be other functions that use the globally scoped "count" variable and you want to be able to share this declared variable with those other functions.
 */
 
 // counter1 code
@@ -62,9 +70,17 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
+ 
+console.log('task 2', inning());
+console.log('task 2', inning());
+console.log('task 2', inning());
+console.log('task 2', inning());
+console.log('task 2', inning());
+console.log('task 2', inning());
+console.log('task 2', inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
