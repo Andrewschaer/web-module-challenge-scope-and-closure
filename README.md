@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  
+#Closure occurs in JavaScript when a function sees that a variable that is being called for is undefined within its own function's scope, and reaches outside of the function scope to find and subsequently utilize that variable if it had been defined on parent-level scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,19 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+#Closure is used in this code when the function within 'personalDice' console-logs the string "`${name} rolled a ${newRoll}`", specifically when "${name}" is being called for.  I can tell because "name" is not defined in that inner function's scope, and must reach outside of that function to a parent scope to find the value of "name".
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+#What will be the same:
+    Both calls will return a string that begins with "Dan rolled a".
+ What could change:
+    The value at the end of the resulting string will could be different.  This is because the function that dansRoll calls, personalDice, will update the value of 'newRoll' each time it is run, providing a new random integer between 0 - 5. 
+
 c. What is the lexical scope of `newRoll`? 
+
+#The lexical scope of 'newRoll' is within the unnamed inner function within the 'personalDice' function. This is because it the 'newRoll' variable is declared within that inner function.
 
 
 ### Task 3 - Stretch Goals
