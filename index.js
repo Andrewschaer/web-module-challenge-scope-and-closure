@@ -169,11 +169,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getIS_CB, inningCB, inningsNum) {
+  let sbSummary = [];
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for(let i = 0; i < inningsNum; i++){
+    let innSummary = getIS_CB(inningCB);
+    sbSummary.push(`Inning ${i}: Away ${innSummary.Away} - Home ${innSummary.Home}`);
+    homeTotal = homeTotal + innSummary.Home;
+    awayTotal = awayTotal + innSummary.Away;
+  }
+  if (homeTotal === awayTotal){
+    sbSummary.push(`This game will require extra innings: Away ${awayTotal} - Home ${homeTotal}`);
+  }else sbSummary.push(`Final Score: Away ${awayTotal} - Home ${homeTotal}`);
+  return sbSummary; 
 }
 
-
+console.log('task 5', scoreboard(getInningScore, inning, 9));
+console.log('task 5', scoreboard(getInningScore, inning, 9));
+console.log('task 5', scoreboard(getInningScore, inning, 9));
+console.log('task 5', scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
