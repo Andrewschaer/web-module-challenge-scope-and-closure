@@ -75,12 +75,6 @@ function inning(){
 }
  
 console.log('task 2', inning());
-console.log('task 2', inning());
-console.log('task 2', inning());
-console.log('task 2', inning());
-console.log('task 2', inning());
-console.log('task 2', inning());
-console.log('task 2', inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -97,9 +91,23 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, inningsNum){
+  let totalScore = {
+    Home: 0,
+    Away: 0,
+  };
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0; i < inningsNum; i++){
+    homeScore = homeScore + inningCB();
+    awayScore = awayScore + inningCB();
+  }
+  totalScore.Home = homeScore;
+  totalScore.Away = awayScore;
+  return totalScore;
 }
+
+console.log('task 3', finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
